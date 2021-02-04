@@ -35,7 +35,8 @@ function isArrayLengthEven(numbers) {
  * addLailaToArray(["Mshary", "Hasan"]) -> ["Mshary", "Hasan", "Laila"]
  */
 function addLailaToArray(instructors) {
-  return instructors.push("Laila");
+  instructors.push("Laila")
+  return instructors;
 }
 
 /**
@@ -47,13 +48,7 @@ function addLailaToArray(instructors) {
  * eliminateTeam(["Brazil", "Germany", "Italy"]) -> "Italy"
  */
 function eliminateTeam(teams) {
-  teams.forEach((element,index) => {
-    if(index === teams.length - 1) {
-      let lastTeam = teams[index];
-      teams.splice(index);
-      return console.log(lastTeam);
-    }
-  });
+  return teams.pop();
 }
 
 /**
@@ -67,8 +62,10 @@ function eliminateTeam(teams) {
  * secondHalfOfArrayIfItIsEven(["apple", "orange", "banana", "kiwi", "blueberry"]) -> []
  */
 function secondHalfOfArrayIfItIsEven(fruits) {
-  if(fruits.length % 2 === 0) return fruits.splice(0,(fruits.length / 2));
-  else return fruits.splice(0);
+  if(fruits.length % 2 === 0) {
+    return fruits.slice((fruits.length / 2),fruits.length);
+  }
+  return [];
 }
 
 /**
@@ -87,18 +84,11 @@ function secondHalfOfArrayIfItIsEven(fruits) {
  */
 function youGottaCalmDown(shout) {
   
-  if(shout.endsWith('!') === false) {
-    return console.log(shout)
-  } else {
-    for(let i = 0; i <= shout.length; i++) {
-      if(shout[i] == '!') {
-        return console.log(shout.slice(0,i+1))
-      }
-    }
+  while(shout.endsWith("!!")) {
+    shout = shout.slice(0, -1); 
   }
+  return shout;
 }
-
-
 
 module.exports = {
   isArrayLengthOdd,
